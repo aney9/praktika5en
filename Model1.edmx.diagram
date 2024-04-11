@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c459f7a6e5cd45ae80b1628a2559cd26" Name="Diagram1">
+        <EntityTypeShape EntityType="DentistryModel.Bill" Width="1.5" PointX="7.5" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DentistryModel.ClientDoctor" Width="1.5" PointX="10.5" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DentistryModel.Clients" Width="1.5" PointX="5.25" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DentistryModel.Dentistry" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DentistryModel.Doctors" Width="1.5" PointX="5.25" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DentistryModel.LoginPassword" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DentistryModel.Medicines" Width="1.5" PointX="7.5" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DentistryModel.Orders" Width="1.5" PointX="7.5" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DentistryModel.OrdersBill" Width="1.5" PointX="12.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="DentistryModel.OrdersMedicines" Width="1.5" PointX="9.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DentistryModel.OrdersService" Width="1.5" PointX="9.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DentistryModel.Roles" Width="1.5" PointX="0.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DentistryModel.Servicess" Width="1.5" PointX="7.5" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DentistryModel.Statuss" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DentistryModel.Stock" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="DentistryModel.StockMedicines" Width="1.5" PointX="12.75" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DentistryModel.TypeOfDoctor" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="DentistryModel.FK__Bill__Clients_ID__01142BA1" ManuallyRouted="false" />
+        <AssociationConnector Association="DentistryModel.FK__Bill__Dentistry___00200768" ManuallyRouted="false" />
+        <AssociationConnector Association="DentistryModel.FK__Bill__Doctor_ID__02084FDA" ManuallyRouted="false" />
+        <AssociationConnector Association="DentistryModel.FK__OrdersBil__bill___04E4BC85" ManuallyRouted="false" />
+        <AssociationConnector Association="DentistryModel.FK__ClientDoc__clien__7D439ABD" ManuallyRouted="false" />
+        <AssociationConnector Association="DentistryModel.FK__ClientDoc__docto__7C4F7684" ManuallyRouted="false" />
+        <AssociationConnector Association="DentistryModel.FK__Clients__loginpa__5165187F" ManuallyRouted="false" />
+        <AssociationConnector Association="DentistryModel.FK__Orders__Clients___5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="DentistryModel.FK__Dentistry__stock__70DDC3D8" ManuallyRouted="false" />
+        <AssociationConnector Association="DentistryModel.FK__Doctors__Dentist__797309D9" ManuallyRouted="false" />
+        <AssociationConnector Association="DentistryModel.FK__Doctors__loginpa__787EE5A0" ManuallyRouted="false" />
+        <AssociationConnector Association="DentistryModel.FK__Doctors__TypeOfD__778AC167" ManuallyRouted="false" />
+        <AssociationConnector Association="DentistryModel.FK__LoginPass__roles__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="DentistryModel.FK__OrdersMed__medic__66603565" ManuallyRouted="false" />
+        <AssociationConnector Association="DentistryModel.FK__StockMedi__medic__6C190EBB" ManuallyRouted="false" />
+        <AssociationConnector Association="DentistryModel.FK__Orders__Status_I__59063A47" ManuallyRouted="false" />
+        <AssociationConnector Association="DentistryModel.FK__OrdersBil__order__05D8E0BE" ManuallyRouted="false" />
+        <AssociationConnector Association="DentistryModel.FK__OrdersMed__order__656C112C" ManuallyRouted="false" />
+        <AssociationConnector Association="DentistryModel.FK__OrdersSer__order__5EBF139D" ManuallyRouted="false" />
+        <AssociationConnector Association="DentistryModel.FK__OrdersSer__servi__5FB337D6" ManuallyRouted="false" />
+        <AssociationConnector Association="DentistryModel.FK__StockMedi__stock__6D0D32F4" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,49 @@
+﻿<Window x:Class="praktika5.orders"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:praktika5"
+        mc:Ignorable="d"
+        Title="orders" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="0.2*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Таблица заказов" Grid.Column="2" TextWrapping="Wrap" HorizontalAlignment="Center"/>
+        <DataGrid SelectionChanged="DataGrid_SelectionChanged" x:Name="dg1" AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="1" Grid.ColumnSpan="5">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding DateOrders}" Header="Дата заказа"/>
+                <DataGridTextColumn Binding="{Binding NumberOfOrders}" Header="Номер заказа"/>
+                <DataGridTextColumn Binding="{Binding Clients.LoginPassword.loginvhod}" Header="Логин клиента"/>
+                <DataGridTextColumn Binding="{Binding Statuss.statusss}" Header="Статус заказа"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBlock Text="Выберите дату" Grid.Row="2" Grid.ColumnSpan="2" TextWrapping="Wrap"/>
+        <TextBlock Text="Введите номер заказа" Grid.Row="2" Grid.Column="2" TextWrapping="Wrap"/>
+        <TextBlock Text="Выберите логин" Grid.Row="2" Grid.Column="3" TextWrapping="Wrap"/>
+        <TextBlock Text="Выберите статус" Grid.Row="2" Grid.Column="4" TextWrapping="Wrap"/>
+        <DatePicker  Grid.Row="3" Grid.ColumnSpan="2" DisplayDateStart="2023-01-01" DisplayDateEnd="2025-01-01" x:Name="data" SelectedDate="{Binding SelectedDate, Mode=TwoWay}" IsTodayHighlighted="False"/>
+        <TextBox x:Name="nomer" Grid.Row="3" Grid.Column="2" PreviewTextInput="provaerka"/>
+        <ComboBox Grid.Row="3" Grid.Column="3" SelectionChanged="vyborlogin_select" x:Name="vyborlogin"/>
+        <ComboBox Grid.Row="3" Grid.Column="4" SelectionChanged="vyborstatus_select" x:Name="vyborstatus"/>
+        <Button x:Name="dob" Content="добавить" Click="dobavl" Grid.Row="4" Grid.ColumnSpan="5"/>
+        <Button x:Name="izm" Content="изменить" Click="izmen" Grid.Row="5" Grid.ColumnSpan="5"/>
+        <Button x:Name="uda" Content="удалить" Click="udal" Grid.Row="6" Grid.ColumnSpan="5"/>
+        <Button x:Name="vyh" Content="выйти" Click="vyhod" Grid.Row="7" Grid.ColumnSpan="5"/>
+    </Grid>
+</Window>

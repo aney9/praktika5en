@@ -1,0 +1,1243 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище DentistryModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Bill">
+          <Key>
+            <PropertyRef Name="ID_bill" />
+          </Key>
+          <Property Name="ID_bill" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PurchaseAmount" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Dentistry_ID" Type="int" Nullable="false" />
+          <Property Name="Clients_ID" Type="int" Nullable="false" />
+          <Property Name="Doctor_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ClientDoctor">
+          <Key>
+            <PropertyRef Name="ID_clientdoctor" />
+          </Key>
+          <Property Name="ID_clientdoctor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="doctors_ID" Type="int" Nullable="false" />
+          <Property Name="clients_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Clients">
+          <Key>
+            <PropertyRef Name="ID_clients" />
+          </Key>
+          <Property Name="ID_clients" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClientSurname" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="ClientName" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="ClientMiddlename" Type="varchar" MaxLength="25" />
+          <Property Name="PhoneNumber" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="loginpassword_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Dentistry">
+          <Key>
+            <PropertyRef Name="ID_dentistry" />
+          </Key>
+          <Property Name="ID_dentistry" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AddressDentistry" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="stock_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Doctors">
+          <Key>
+            <PropertyRef Name="ID_doctors" />
+          </Key>
+          <Property Name="ID_doctors" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DoctorSurname" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="DoctorName" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="DoctorMiddlename" Type="varchar" MaxLength="25" />
+          <Property Name="TypeOfDoctor_ID" Type="int" Nullable="false" />
+          <Property Name="loginpassword_ID" Type="int" Nullable="false" />
+          <Property Name="Dentistry_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LoginPassword">
+          <Key>
+            <PropertyRef Name="ID_loginpassword" />
+          </Key>
+          <Property Name="ID_loginpassword" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="loginvhod" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="passwordvhod" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="roles_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Medicines">
+          <Key>
+            <PropertyRef Name="ID_medicines" />
+          </Key>
+          <Property Name="ID_medicines" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="mediciness" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="PriceMedicines" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="ID_orders" />
+          </Key>
+          <Property Name="ID_orders" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DateOrders" Type="date" Nullable="false" />
+          <Property Name="NumberOfOrders" Type="int" Nullable="false" />
+          <Property Name="Clients_ID" Type="int" Nullable="false" />
+          <Property Name="Status_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrdersBill">
+          <Key>
+            <PropertyRef Name="ID_ordersbill" />
+          </Key>
+          <Property Name="ID_ordersbill" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="bill_ID" Type="int" Nullable="false" />
+          <Property Name="orders_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrdersMedicines">
+          <Key>
+            <PropertyRef Name="ID_ordersmedicines" />
+          </Key>
+          <Property Name="ID_ordersmedicines" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="orders_ID" Type="int" Nullable="false" />
+          <Property Name="medicines_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrdersService">
+          <Key>
+            <PropertyRef Name="ID_ordersservice" />
+          </Key>
+          <Property Name="ID_ordersservice" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="orders_ID" Type="int" Nullable="false" />
+          <Property Name="service_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="ID_roles" />
+          </Key>
+          <Property Name="ID_roles" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DentistryRole" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Servicess">
+          <Key>
+            <PropertyRef Name="ID_service" />
+          </Key>
+          <Property Name="ID_service" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="servicesss" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="PriceService" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Statuss">
+          <Key>
+            <PropertyRef Name="ID_status" />
+          </Key>
+          <Property Name="ID_status" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="statusss" Type="varchar" MaxLength="25" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Stock">
+          <Key>
+            <PropertyRef Name="ID_stock" />
+          </Key>
+          <Property Name="ID_stock" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WerehouseAddress" Type="varchar" MaxLength="40" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StockMedicines">
+          <Key>
+            <PropertyRef Name="ID_stockmedicines" />
+          </Key>
+          <Property Name="ID_stockmedicines" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="medicines_ID" Type="int" Nullable="false" />
+          <Property Name="stock_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TypeOfDoctor">
+          <Key>
+            <PropertyRef Name="ID_typeofdoctor" />
+          </Key>
+          <Property Name="ID_typeofdoctor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="typeofdoctors" Type="varchar" MaxLength="25" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Bill__Clients_ID__01142BA1">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
+          <End Role="Bill" Type="Self.Bill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="ID_clients" />
+            </Principal>
+            <Dependent Role="Bill">
+              <PropertyRef Name="Clients_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Bill__Dentistry___00200768">
+          <End Role="Dentistry" Type="Self.Dentistry" Multiplicity="1" />
+          <End Role="Bill" Type="Self.Bill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dentistry">
+              <PropertyRef Name="ID_dentistry" />
+            </Principal>
+            <Dependent Role="Bill">
+              <PropertyRef Name="Dentistry_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Bill__Doctor_ID__02084FDA">
+          <End Role="Doctors" Type="Self.Doctors" Multiplicity="1" />
+          <End Role="Bill" Type="Self.Bill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctors">
+              <PropertyRef Name="ID_doctors" />
+            </Principal>
+            <Dependent Role="Bill">
+              <PropertyRef Name="Doctor_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ClientDoc__clien__7D439ABD">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
+          <End Role="ClientDoctor" Type="Self.ClientDoctor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="ID_clients" />
+            </Principal>
+            <Dependent Role="ClientDoctor">
+              <PropertyRef Name="clients_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ClientDoc__docto__7C4F7684">
+          <End Role="Doctors" Type="Self.Doctors" Multiplicity="1" />
+          <End Role="ClientDoctor" Type="Self.ClientDoctor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctors">
+              <PropertyRef Name="ID_doctors" />
+            </Principal>
+            <Dependent Role="ClientDoctor">
+              <PropertyRef Name="doctors_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Clients__loginpa__5165187F">
+          <End Role="LoginPassword" Type="Self.LoginPassword" Multiplicity="1" />
+          <End Role="Clients" Type="Self.Clients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoginPassword">
+              <PropertyRef Name="ID_loginpassword" />
+            </Principal>
+            <Dependent Role="Clients">
+              <PropertyRef Name="loginpassword_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Dentistry__stock__70DDC3D8">
+          <End Role="Stock" Type="Self.Stock" Multiplicity="1" />
+          <End Role="Dentistry" Type="Self.Dentistry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stock">
+              <PropertyRef Name="ID_stock" />
+            </Principal>
+            <Dependent Role="Dentistry">
+              <PropertyRef Name="stock_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Doctors__Dentist__797309D9">
+          <End Role="Dentistry" Type="Self.Dentistry" Multiplicity="1" />
+          <End Role="Doctors" Type="Self.Doctors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dentistry">
+              <PropertyRef Name="ID_dentistry" />
+            </Principal>
+            <Dependent Role="Doctors">
+              <PropertyRef Name="Dentistry_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Doctors__loginpa__787EE5A0">
+          <End Role="LoginPassword" Type="Self.LoginPassword" Multiplicity="1" />
+          <End Role="Doctors" Type="Self.Doctors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoginPassword">
+              <PropertyRef Name="ID_loginpassword" />
+            </Principal>
+            <Dependent Role="Doctors">
+              <PropertyRef Name="loginpassword_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Doctors__TypeOfD__778AC167">
+          <End Role="TypeOfDoctor" Type="Self.TypeOfDoctor" Multiplicity="1" />
+          <End Role="Doctors" Type="Self.Doctors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeOfDoctor">
+              <PropertyRef Name="ID_typeofdoctor" />
+            </Principal>
+            <Dependent Role="Doctors">
+              <PropertyRef Name="TypeOfDoctor_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LoginPass__roles__4CA06362">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+          <End Role="LoginPassword" Type="Self.LoginPassword" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="ID_roles" />
+            </Principal>
+            <Dependent Role="LoginPassword">
+              <PropertyRef Name="roles_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Orders__Clients___5812160E">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="ID_clients" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="Clients_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Orders__Status_I__59063A47">
+          <End Role="Statuss" Type="Self.Statuss" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Statuss">
+              <PropertyRef Name="ID_status" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="Status_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrdersBil__bill___04E4BC85">
+          <End Role="Bill" Type="Self.Bill" Multiplicity="1" />
+          <End Role="OrdersBill" Type="Self.OrdersBill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bill">
+              <PropertyRef Name="ID_bill" />
+            </Principal>
+            <Dependent Role="OrdersBill">
+              <PropertyRef Name="bill_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrdersBil__order__05D8E0BE">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+          <End Role="OrdersBill" Type="Self.OrdersBill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="ID_orders" />
+            </Principal>
+            <Dependent Role="OrdersBill">
+              <PropertyRef Name="orders_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrdersMed__medic__66603565">
+          <End Role="Medicines" Type="Self.Medicines" Multiplicity="1" />
+          <End Role="OrdersMedicines" Type="Self.OrdersMedicines" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Medicines">
+              <PropertyRef Name="ID_medicines" />
+            </Principal>
+            <Dependent Role="OrdersMedicines">
+              <PropertyRef Name="medicines_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrdersMed__order__656C112C">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+          <End Role="OrdersMedicines" Type="Self.OrdersMedicines" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="ID_orders" />
+            </Principal>
+            <Dependent Role="OrdersMedicines">
+              <PropertyRef Name="orders_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrdersSer__order__5EBF139D">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+          <End Role="OrdersService" Type="Self.OrdersService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="ID_orders" />
+            </Principal>
+            <Dependent Role="OrdersService">
+              <PropertyRef Name="orders_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrdersSer__servi__5FB337D6">
+          <End Role="Servicess" Type="Self.Servicess" Multiplicity="1" />
+          <End Role="OrdersService" Type="Self.OrdersService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servicess">
+              <PropertyRef Name="ID_service" />
+            </Principal>
+            <Dependent Role="OrdersService">
+              <PropertyRef Name="service_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StockMedi__medic__6C190EBB">
+          <End Role="Medicines" Type="Self.Medicines" Multiplicity="1" />
+          <End Role="StockMedicines" Type="Self.StockMedicines" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Medicines">
+              <PropertyRef Name="ID_medicines" />
+            </Principal>
+            <Dependent Role="StockMedicines">
+              <PropertyRef Name="medicines_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StockMedi__stock__6D0D32F4">
+          <End Role="Stock" Type="Self.Stock" Multiplicity="1" />
+          <End Role="StockMedicines" Type="Self.StockMedicines" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stock">
+              <PropertyRef Name="ID_stock" />
+            </Principal>
+            <Dependent Role="StockMedicines">
+              <PropertyRef Name="stock_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище DentistryModelContainer">
+          <EntitySet Name="Bill" EntityType="Self.Bill" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ClientDoctor" EntityType="Self.ClientDoctor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Clients" EntityType="Self.Clients" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dentistry" EntityType="Self.Dentistry" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Doctors" EntityType="Self.Doctors" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoginPassword" EntityType="Self.LoginPassword" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Medicines" EntityType="Self.Medicines" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrdersBill" EntityType="Self.OrdersBill" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrdersMedicines" EntityType="Self.OrdersMedicines" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrdersService" EntityType="Self.OrdersService" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Servicess" EntityType="Self.Servicess" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Statuss" EntityType="Self.Statuss" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Stock" EntityType="Self.Stock" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StockMedicines" EntityType="Self.StockMedicines" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeOfDoctor" EntityType="Self.TypeOfDoctor" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Bill__Clients_ID__01142BA1" Association="Self.FK__Bill__Clients_ID__01142BA1">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="Bill" EntitySet="Bill" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Bill__Dentistry___00200768" Association="Self.FK__Bill__Dentistry___00200768">
+            <End Role="Dentistry" EntitySet="Dentistry" />
+            <End Role="Bill" EntitySet="Bill" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Bill__Doctor_ID__02084FDA" Association="Self.FK__Bill__Doctor_ID__02084FDA">
+            <End Role="Doctors" EntitySet="Doctors" />
+            <End Role="Bill" EntitySet="Bill" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ClientDoc__clien__7D439ABD" Association="Self.FK__ClientDoc__clien__7D439ABD">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="ClientDoctor" EntitySet="ClientDoctor" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ClientDoc__docto__7C4F7684" Association="Self.FK__ClientDoc__docto__7C4F7684">
+            <End Role="Doctors" EntitySet="Doctors" />
+            <End Role="ClientDoctor" EntitySet="ClientDoctor" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Clients__loginpa__5165187F" Association="Self.FK__Clients__loginpa__5165187F">
+            <End Role="LoginPassword" EntitySet="LoginPassword" />
+            <End Role="Clients" EntitySet="Clients" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Dentistry__stock__70DDC3D8" Association="Self.FK__Dentistry__stock__70DDC3D8">
+            <End Role="Stock" EntitySet="Stock" />
+            <End Role="Dentistry" EntitySet="Dentistry" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Doctors__Dentist__797309D9" Association="Self.FK__Doctors__Dentist__797309D9">
+            <End Role="Dentistry" EntitySet="Dentistry" />
+            <End Role="Doctors" EntitySet="Doctors" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Doctors__loginpa__787EE5A0" Association="Self.FK__Doctors__loginpa__787EE5A0">
+            <End Role="LoginPassword" EntitySet="LoginPassword" />
+            <End Role="Doctors" EntitySet="Doctors" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Doctors__TypeOfD__778AC167" Association="Self.FK__Doctors__TypeOfD__778AC167">
+            <End Role="TypeOfDoctor" EntitySet="TypeOfDoctor" />
+            <End Role="Doctors" EntitySet="Doctors" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LoginPass__roles__4CA06362" Association="Self.FK__LoginPass__roles__4CA06362">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="LoginPassword" EntitySet="LoginPassword" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Orders__Clients___5812160E" Association="Self.FK__Orders__Clients___5812160E">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Orders__Status_I__59063A47" Association="Self.FK__Orders__Status_I__59063A47">
+            <End Role="Statuss" EntitySet="Statuss" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrdersBil__bill___04E4BC85" Association="Self.FK__OrdersBil__bill___04E4BC85">
+            <End Role="Bill" EntitySet="Bill" />
+            <End Role="OrdersBill" EntitySet="OrdersBill" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrdersBil__order__05D8E0BE" Association="Self.FK__OrdersBil__order__05D8E0BE">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="OrdersBill" EntitySet="OrdersBill" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrdersMed__medic__66603565" Association="Self.FK__OrdersMed__medic__66603565">
+            <End Role="Medicines" EntitySet="Medicines" />
+            <End Role="OrdersMedicines" EntitySet="OrdersMedicines" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrdersMed__order__656C112C" Association="Self.FK__OrdersMed__order__656C112C">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="OrdersMedicines" EntitySet="OrdersMedicines" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrdersSer__order__5EBF139D" Association="Self.FK__OrdersSer__order__5EBF139D">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="OrdersService" EntitySet="OrdersService" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrdersSer__servi__5FB337D6" Association="Self.FK__OrdersSer__servi__5FB337D6">
+            <End Role="Servicess" EntitySet="Servicess" />
+            <End Role="OrdersService" EntitySet="OrdersService" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StockMedi__medic__6C190EBB" Association="Self.FK__StockMedi__medic__6C190EBB">
+            <End Role="Medicines" EntitySet="Medicines" />
+            <End Role="StockMedicines" EntitySet="StockMedicines" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StockMedi__stock__6D0D32F4" Association="Self.FK__StockMedi__stock__6D0D32F4">
+            <End Role="Stock" EntitySet="Stock" />
+            <End Role="StockMedicines" EntitySet="StockMedicines" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DentistryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Bill">
+          <Key>
+            <PropertyRef Name="ID_bill" />
+          </Key>
+          <Property Name="ID_bill" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PurchaseAmount" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Dentistry_ID" Type="Int32" Nullable="false" />
+          <Property Name="Clients_ID" Type="Int32" Nullable="false" />
+          <Property Name="Doctor_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Clients" Relationship="Self.FK__Bill__Clients_ID__01142BA1" FromRole="Bill" ToRole="Clients" />
+          <NavigationProperty Name="Dentistry" Relationship="Self.FK__Bill__Dentistry___00200768" FromRole="Bill" ToRole="Dentistry" />
+          <NavigationProperty Name="Doctors" Relationship="Self.FK__Bill__Doctor_ID__02084FDA" FromRole="Bill" ToRole="Doctors" />
+          <NavigationProperty Name="OrdersBill" Relationship="Self.FK__OrdersBil__bill___04E4BC85" FromRole="Bill" ToRole="OrdersBill" />
+        </EntityType>
+        <EntityType Name="ClientDoctor">
+          <Key>
+            <PropertyRef Name="ID_clientdoctor" />
+          </Key>
+          <Property Name="ID_clientdoctor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="doctors_ID" Type="Int32" Nullable="false" />
+          <Property Name="clients_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Clients" Relationship="Self.FK__ClientDoc__clien__7D439ABD" FromRole="ClientDoctor" ToRole="Clients" />
+          <NavigationProperty Name="Doctors" Relationship="Self.FK__ClientDoc__docto__7C4F7684" FromRole="ClientDoctor" ToRole="Doctors" />
+        </EntityType>
+        <EntityType Name="Clients">
+          <Key>
+            <PropertyRef Name="ID_clients" />
+          </Key>
+          <Property Name="ID_clients" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClientSurname" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ClientName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ClientMiddlename" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="loginpassword_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Bill" Relationship="Self.FK__Bill__Clients_ID__01142BA1" FromRole="Clients" ToRole="Bill" />
+          <NavigationProperty Name="ClientDoctor" Relationship="Self.FK__ClientDoc__clien__7D439ABD" FromRole="Clients" ToRole="ClientDoctor" />
+          <NavigationProperty Name="LoginPassword" Relationship="Self.FK__Clients__loginpa__5165187F" FromRole="Clients" ToRole="LoginPassword" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__Clients___5812160E" FromRole="Clients" ToRole="Orders" />
+        </EntityType>
+        <EntityType Name="Dentistry">
+          <Key>
+            <PropertyRef Name="ID_dentistry" />
+          </Key>
+          <Property Name="ID_dentistry" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AddressDentistry" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="stock_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Bill" Relationship="Self.FK__Bill__Dentistry___00200768" FromRole="Dentistry" ToRole="Bill" />
+          <NavigationProperty Name="Stock" Relationship="Self.FK__Dentistry__stock__70DDC3D8" FromRole="Dentistry" ToRole="Stock" />
+          <NavigationProperty Name="Doctors" Relationship="Self.FK__Doctors__Dentist__797309D9" FromRole="Dentistry" ToRole="Doctors" />
+        </EntityType>
+        <EntityType Name="Doctors">
+          <Key>
+            <PropertyRef Name="ID_doctors" />
+          </Key>
+          <Property Name="ID_doctors" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DoctorSurname" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DoctorName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DoctorMiddlename" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="TypeOfDoctor_ID" Type="Int32" Nullable="false" />
+          <Property Name="loginpassword_ID" Type="Int32" Nullable="false" />
+          <Property Name="Dentistry_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Bill" Relationship="Self.FK__Bill__Doctor_ID__02084FDA" FromRole="Doctors" ToRole="Bill" />
+          <NavigationProperty Name="ClientDoctor" Relationship="Self.FK__ClientDoc__docto__7C4F7684" FromRole="Doctors" ToRole="ClientDoctor" />
+          <NavigationProperty Name="Dentistry" Relationship="Self.FK__Doctors__Dentist__797309D9" FromRole="Doctors" ToRole="Dentistry" />
+          <NavigationProperty Name="LoginPassword" Relationship="Self.FK__Doctors__loginpa__787EE5A0" FromRole="Doctors" ToRole="LoginPassword" />
+          <NavigationProperty Name="TypeOfDoctor" Relationship="Self.FK__Doctors__TypeOfD__778AC167" FromRole="Doctors" ToRole="TypeOfDoctor" />
+        </EntityType>
+        <EntityType Name="LoginPassword">
+          <Key>
+            <PropertyRef Name="ID_loginpassword" />
+          </Key>
+          <Property Name="ID_loginpassword" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="loginvhod" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="passwordvhod" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="roles_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Clients" Relationship="Self.FK__Clients__loginpa__5165187F" FromRole="LoginPassword" ToRole="Clients" />
+          <NavigationProperty Name="Doctors" Relationship="Self.FK__Doctors__loginpa__787EE5A0" FromRole="LoginPassword" ToRole="Doctors" />
+          <NavigationProperty Name="Roles" Relationship="Self.FK__LoginPass__roles__4CA06362" FromRole="LoginPassword" ToRole="Roles" />
+        </EntityType>
+        <EntityType Name="Medicines">
+          <Key>
+            <PropertyRef Name="ID_medicines" />
+          </Key>
+          <Property Name="ID_medicines" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="mediciness" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PriceMedicines" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <NavigationProperty Name="OrdersMedicines" Relationship="Self.FK__OrdersMed__medic__66603565" FromRole="Medicines" ToRole="OrdersMedicines" />
+          <NavigationProperty Name="StockMedicines" Relationship="Self.FK__StockMedi__medic__6C190EBB" FromRole="Medicines" ToRole="StockMedicines" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="ID_orders" />
+          </Key>
+          <Property Name="ID_orders" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateOrders" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="NumberOfOrders" Type="Int32" Nullable="false" />
+          <Property Name="Clients_ID" Type="Int32" Nullable="false" />
+          <Property Name="Status_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Clients" Relationship="Self.FK__Orders__Clients___5812160E" FromRole="Orders" ToRole="Clients" />
+          <NavigationProperty Name="Statuss" Relationship="Self.FK__Orders__Status_I__59063A47" FromRole="Orders" ToRole="Statuss" />
+          <NavigationProperty Name="OrdersBill" Relationship="Self.FK__OrdersBil__order__05D8E0BE" FromRole="Orders" ToRole="OrdersBill" />
+          <NavigationProperty Name="OrdersMedicines" Relationship="Self.FK__OrdersMed__order__656C112C" FromRole="Orders" ToRole="OrdersMedicines" />
+          <NavigationProperty Name="OrdersService" Relationship="Self.FK__OrdersSer__order__5EBF139D" FromRole="Orders" ToRole="OrdersService" />
+        </EntityType>
+        <EntityType Name="OrdersBill">
+          <Key>
+            <PropertyRef Name="ID_ordersbill" />
+          </Key>
+          <Property Name="ID_ordersbill" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="bill_ID" Type="Int32" Nullable="false" />
+          <Property Name="orders_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Bill" Relationship="Self.FK__OrdersBil__bill___04E4BC85" FromRole="OrdersBill" ToRole="Bill" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__OrdersBil__order__05D8E0BE" FromRole="OrdersBill" ToRole="Orders" />
+        </EntityType>
+        <EntityType Name="OrdersMedicines">
+          <Key>
+            <PropertyRef Name="ID_ordersmedicines" />
+          </Key>
+          <Property Name="ID_ordersmedicines" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="orders_ID" Type="Int32" Nullable="false" />
+          <Property Name="medicines_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Medicines" Relationship="Self.FK__OrdersMed__medic__66603565" FromRole="OrdersMedicines" ToRole="Medicines" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__OrdersMed__order__656C112C" FromRole="OrdersMedicines" ToRole="Orders" />
+        </EntityType>
+        <EntityType Name="OrdersService">
+          <Key>
+            <PropertyRef Name="ID_ordersservice" />
+          </Key>
+          <Property Name="ID_ordersservice" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="orders_ID" Type="Int32" Nullable="false" />
+          <Property Name="service_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__OrdersSer__order__5EBF139D" FromRole="OrdersService" ToRole="Orders" />
+          <NavigationProperty Name="Servicess" Relationship="Self.FK__OrdersSer__servi__5FB337D6" FromRole="OrdersService" ToRole="Servicess" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="ID_roles" />
+          </Key>
+          <Property Name="ID_roles" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DentistryRole" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="LoginPassword" Relationship="Self.FK__LoginPass__roles__4CA06362" FromRole="Roles" ToRole="LoginPassword" />
+        </EntityType>
+        <EntityType Name="Servicess">
+          <Key>
+            <PropertyRef Name="ID_service" />
+          </Key>
+          <Property Name="ID_service" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="servicesss" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PriceService" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <NavigationProperty Name="OrdersService" Relationship="Self.FK__OrdersSer__servi__5FB337D6" FromRole="Servicess" ToRole="OrdersService" />
+        </EntityType>
+        <EntityType Name="Statuss">
+          <Key>
+            <PropertyRef Name="ID_status" />
+          </Key>
+          <Property Name="ID_status" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="statusss" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__Status_I__59063A47" FromRole="Statuss" ToRole="Orders" />
+        </EntityType>
+        <EntityType Name="Stock">
+          <Key>
+            <PropertyRef Name="ID_stock" />
+          </Key>
+          <Property Name="ID_stock" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WerehouseAddress" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Dentistry" Relationship="Self.FK__Dentistry__stock__70DDC3D8" FromRole="Stock" ToRole="Dentistry" />
+          <NavigationProperty Name="StockMedicines" Relationship="Self.FK__StockMedi__stock__6D0D32F4" FromRole="Stock" ToRole="StockMedicines" />
+        </EntityType>
+        <EntityType Name="StockMedicines">
+          <Key>
+            <PropertyRef Name="ID_stockmedicines" />
+          </Key>
+          <Property Name="ID_stockmedicines" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="medicines_ID" Type="Int32" Nullable="false" />
+          <Property Name="stock_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Medicines" Relationship="Self.FK__StockMedi__medic__6C190EBB" FromRole="StockMedicines" ToRole="Medicines" />
+          <NavigationProperty Name="Stock" Relationship="Self.FK__StockMedi__stock__6D0D32F4" FromRole="StockMedicines" ToRole="Stock" />
+        </EntityType>
+        <EntityType Name="TypeOfDoctor">
+          <Key>
+            <PropertyRef Name="ID_typeofdoctor" />
+          </Key>
+          <Property Name="ID_typeofdoctor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="typeofdoctors" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Doctors" Relationship="Self.FK__Doctors__TypeOfD__778AC167" FromRole="TypeOfDoctor" ToRole="Doctors" />
+        </EntityType>
+        <Association Name="FK__Bill__Clients_ID__01142BA1">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
+          <End Role="Bill" Type="Self.Bill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="ID_clients" />
+            </Principal>
+            <Dependent Role="Bill">
+              <PropertyRef Name="Clients_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Bill__Dentistry___00200768">
+          <End Role="Dentistry" Type="Self.Dentistry" Multiplicity="1" />
+          <End Role="Bill" Type="Self.Bill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dentistry">
+              <PropertyRef Name="ID_dentistry" />
+            </Principal>
+            <Dependent Role="Bill">
+              <PropertyRef Name="Dentistry_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Bill__Doctor_ID__02084FDA">
+          <End Role="Doctors" Type="Self.Doctors" Multiplicity="1" />
+          <End Role="Bill" Type="Self.Bill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctors">
+              <PropertyRef Name="ID_doctors" />
+            </Principal>
+            <Dependent Role="Bill">
+              <PropertyRef Name="Doctor_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrdersBil__bill___04E4BC85">
+          <End Role="Bill" Type="Self.Bill" Multiplicity="1" />
+          <End Role="OrdersBill" Type="Self.OrdersBill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bill">
+              <PropertyRef Name="ID_bill" />
+            </Principal>
+            <Dependent Role="OrdersBill">
+              <PropertyRef Name="bill_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ClientDoc__clien__7D439ABD">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
+          <End Role="ClientDoctor" Type="Self.ClientDoctor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="ID_clients" />
+            </Principal>
+            <Dependent Role="ClientDoctor">
+              <PropertyRef Name="clients_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ClientDoc__docto__7C4F7684">
+          <End Role="Doctors" Type="Self.Doctors" Multiplicity="1" />
+          <End Role="ClientDoctor" Type="Self.ClientDoctor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctors">
+              <PropertyRef Name="ID_doctors" />
+            </Principal>
+            <Dependent Role="ClientDoctor">
+              <PropertyRef Name="doctors_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Clients__loginpa__5165187F">
+          <End Role="LoginPassword" Type="Self.LoginPassword" Multiplicity="1" />
+          <End Role="Clients" Type="Self.Clients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoginPassword">
+              <PropertyRef Name="ID_loginpassword" />
+            </Principal>
+            <Dependent Role="Clients">
+              <PropertyRef Name="loginpassword_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Orders__Clients___5812160E">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="ID_clients" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="Clients_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Dentistry__stock__70DDC3D8">
+          <End Role="Stock" Type="Self.Stock" Multiplicity="1" />
+          <End Role="Dentistry" Type="Self.Dentistry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stock">
+              <PropertyRef Name="ID_stock" />
+            </Principal>
+            <Dependent Role="Dentistry">
+              <PropertyRef Name="stock_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Doctors__Dentist__797309D9">
+          <End Role="Dentistry" Type="Self.Dentistry" Multiplicity="1" />
+          <End Role="Doctors" Type="Self.Doctors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dentistry">
+              <PropertyRef Name="ID_dentistry" />
+            </Principal>
+            <Dependent Role="Doctors">
+              <PropertyRef Name="Dentistry_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Doctors__loginpa__787EE5A0">
+          <End Role="LoginPassword" Type="Self.LoginPassword" Multiplicity="1" />
+          <End Role="Doctors" Type="Self.Doctors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoginPassword">
+              <PropertyRef Name="ID_loginpassword" />
+            </Principal>
+            <Dependent Role="Doctors">
+              <PropertyRef Name="loginpassword_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Doctors__TypeOfD__778AC167">
+          <End Role="TypeOfDoctor" Type="Self.TypeOfDoctor" Multiplicity="1" />
+          <End Role="Doctors" Type="Self.Doctors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeOfDoctor">
+              <PropertyRef Name="ID_typeofdoctor" />
+            </Principal>
+            <Dependent Role="Doctors">
+              <PropertyRef Name="TypeOfDoctor_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LoginPass__roles__4CA06362">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+          <End Role="LoginPassword" Type="Self.LoginPassword" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="ID_roles" />
+            </Principal>
+            <Dependent Role="LoginPassword">
+              <PropertyRef Name="roles_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrdersMed__medic__66603565">
+          <End Role="Medicines" Type="Self.Medicines" Multiplicity="1" />
+          <End Role="OrdersMedicines" Type="Self.OrdersMedicines" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Medicines">
+              <PropertyRef Name="ID_medicines" />
+            </Principal>
+            <Dependent Role="OrdersMedicines">
+              <PropertyRef Name="medicines_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StockMedi__medic__6C190EBB">
+          <End Role="Medicines" Type="Self.Medicines" Multiplicity="1" />
+          <End Role="StockMedicines" Type="Self.StockMedicines" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Medicines">
+              <PropertyRef Name="ID_medicines" />
+            </Principal>
+            <Dependent Role="StockMedicines">
+              <PropertyRef Name="medicines_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Orders__Status_I__59063A47">
+          <End Role="Statuss" Type="Self.Statuss" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Statuss">
+              <PropertyRef Name="ID_status" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="Status_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrdersBil__order__05D8E0BE">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+          <End Role="OrdersBill" Type="Self.OrdersBill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="ID_orders" />
+            </Principal>
+            <Dependent Role="OrdersBill">
+              <PropertyRef Name="orders_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrdersMed__order__656C112C">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+          <End Role="OrdersMedicines" Type="Self.OrdersMedicines" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="ID_orders" />
+            </Principal>
+            <Dependent Role="OrdersMedicines">
+              <PropertyRef Name="orders_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrdersSer__order__5EBF139D">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+          <End Role="OrdersService" Type="Self.OrdersService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="ID_orders" />
+            </Principal>
+            <Dependent Role="OrdersService">
+              <PropertyRef Name="orders_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrdersSer__servi__5FB337D6">
+          <End Role="Servicess" Type="Self.Servicess" Multiplicity="1" />
+          <End Role="OrdersService" Type="Self.OrdersService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servicess">
+              <PropertyRef Name="ID_service" />
+            </Principal>
+            <Dependent Role="OrdersService">
+              <PropertyRef Name="service_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StockMedi__stock__6D0D32F4">
+          <End Role="Stock" Type="Self.Stock" Multiplicity="1" />
+          <End Role="StockMedicines" Type="Self.StockMedicines" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stock">
+              <PropertyRef Name="ID_stock" />
+            </Principal>
+            <Dependent Role="StockMedicines">
+              <PropertyRef Name="stock_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DentistryEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Bill" EntityType="Self.Bill" />
+          <EntitySet Name="ClientDoctor" EntityType="Self.ClientDoctor" />
+          <EntitySet Name="Clients" EntityType="Self.Clients" />
+          <EntitySet Name="Dentistry" EntityType="Self.Dentistry" />
+          <EntitySet Name="Doctors" EntityType="Self.Doctors" />
+          <EntitySet Name="LoginPassword" EntityType="Self.LoginPassword" />
+          <EntitySet Name="Medicines" EntityType="Self.Medicines" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" />
+          <EntitySet Name="OrdersBill" EntityType="Self.OrdersBill" />
+          <EntitySet Name="OrdersMedicines" EntityType="Self.OrdersMedicines" />
+          <EntitySet Name="OrdersService" EntityType="Self.OrdersService" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" />
+          <EntitySet Name="Servicess" EntityType="Self.Servicess" />
+          <EntitySet Name="Statuss" EntityType="Self.Statuss" />
+          <EntitySet Name="Stock" EntityType="Self.Stock" />
+          <EntitySet Name="StockMedicines" EntityType="Self.StockMedicines" />
+          <EntitySet Name="TypeOfDoctor" EntityType="Self.TypeOfDoctor" />
+          <AssociationSet Name="FK__Bill__Clients_ID__01142BA1" Association="Self.FK__Bill__Clients_ID__01142BA1">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="Bill" EntitySet="Bill" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Bill__Dentistry___00200768" Association="Self.FK__Bill__Dentistry___00200768">
+            <End Role="Dentistry" EntitySet="Dentistry" />
+            <End Role="Bill" EntitySet="Bill" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Bill__Doctor_ID__02084FDA" Association="Self.FK__Bill__Doctor_ID__02084FDA">
+            <End Role="Doctors" EntitySet="Doctors" />
+            <End Role="Bill" EntitySet="Bill" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrdersBil__bill___04E4BC85" Association="Self.FK__OrdersBil__bill___04E4BC85">
+            <End Role="Bill" EntitySet="Bill" />
+            <End Role="OrdersBill" EntitySet="OrdersBill" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ClientDoc__clien__7D439ABD" Association="Self.FK__ClientDoc__clien__7D439ABD">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="ClientDoctor" EntitySet="ClientDoctor" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ClientDoc__docto__7C4F7684" Association="Self.FK__ClientDoc__docto__7C4F7684">
+            <End Role="Doctors" EntitySet="Doctors" />
+            <End Role="ClientDoctor" EntitySet="ClientDoctor" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Clients__loginpa__5165187F" Association="Self.FK__Clients__loginpa__5165187F">
+            <End Role="LoginPassword" EntitySet="LoginPassword" />
+            <End Role="Clients" EntitySet="Clients" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Orders__Clients___5812160E" Association="Self.FK__Orders__Clients___5812160E">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Dentistry__stock__70DDC3D8" Association="Self.FK__Dentistry__stock__70DDC3D8">
+            <End Role="Stock" EntitySet="Stock" />
+            <End Role="Dentistry" EntitySet="Dentistry" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Doctors__Dentist__797309D9" Association="Self.FK__Doctors__Dentist__797309D9">
+            <End Role="Dentistry" EntitySet="Dentistry" />
+            <End Role="Doctors" EntitySet="Doctors" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Doctors__loginpa__787EE5A0" Association="Self.FK__Doctors__loginpa__787EE5A0">
+            <End Role="LoginPassword" EntitySet="LoginPassword" />
+            <End Role="Doctors" EntitySet="Doctors" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Doctors__TypeOfD__778AC167" Association="Self.FK__Doctors__TypeOfD__778AC167">
+            <End Role="TypeOfDoctor" EntitySet="TypeOfDoctor" />
+            <End Role="Doctors" EntitySet="Doctors" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LoginPass__roles__4CA06362" Association="Self.FK__LoginPass__roles__4CA06362">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="LoginPassword" EntitySet="LoginPassword" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrdersMed__medic__66603565" Association="Self.FK__OrdersMed__medic__66603565">
+            <End Role="Medicines" EntitySet="Medicines" />
+            <End Role="OrdersMedicines" EntitySet="OrdersMedicines" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StockMedi__medic__6C190EBB" Association="Self.FK__StockMedi__medic__6C190EBB">
+            <End Role="Medicines" EntitySet="Medicines" />
+            <End Role="StockMedicines" EntitySet="StockMedicines" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Orders__Status_I__59063A47" Association="Self.FK__Orders__Status_I__59063A47">
+            <End Role="Statuss" EntitySet="Statuss" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrdersBil__order__05D8E0BE" Association="Self.FK__OrdersBil__order__05D8E0BE">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="OrdersBill" EntitySet="OrdersBill" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrdersMed__order__656C112C" Association="Self.FK__OrdersMed__order__656C112C">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="OrdersMedicines" EntitySet="OrdersMedicines" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrdersSer__order__5EBF139D" Association="Self.FK__OrdersSer__order__5EBF139D">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="OrdersService" EntitySet="OrdersService" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrdersSer__servi__5FB337D6" Association="Self.FK__OrdersSer__servi__5FB337D6">
+            <End Role="Servicess" EntitySet="Servicess" />
+            <End Role="OrdersService" EntitySet="OrdersService" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StockMedi__stock__6D0D32F4" Association="Self.FK__StockMedi__stock__6D0D32F4">
+            <End Role="Stock" EntitySet="Stock" />
+            <End Role="StockMedicines" EntitySet="StockMedicines" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище DentistryModelContainer" CdmEntityContainer="DentistryEntities1">
+          <EntitySetMapping Name="Bill">
+            <EntityTypeMapping TypeName="DentistryModel.Bill">
+              <MappingFragment StoreEntitySet="Bill">
+                <ScalarProperty Name="ID_bill" ColumnName="ID_bill" />
+                <ScalarProperty Name="PurchaseAmount" ColumnName="PurchaseAmount" />
+                <ScalarProperty Name="Dentistry_ID" ColumnName="Dentistry_ID" />
+                <ScalarProperty Name="Clients_ID" ColumnName="Clients_ID" />
+                <ScalarProperty Name="Doctor_ID" ColumnName="Doctor_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ClientDoctor">
+            <EntityTypeMapping TypeName="DentistryModel.ClientDoctor">
+              <MappingFragment StoreEntitySet="ClientDoctor">
+                <ScalarProperty Name="ID_clientdoctor" ColumnName="ID_clientdoctor" />
+                <ScalarProperty Name="doctors_ID" ColumnName="doctors_ID" />
+                <ScalarProperty Name="clients_ID" ColumnName="clients_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clients">
+            <EntityTypeMapping TypeName="DentistryModel.Clients">
+              <MappingFragment StoreEntitySet="Clients">
+                <ScalarProperty Name="ID_clients" ColumnName="ID_clients" />
+                <ScalarProperty Name="ClientSurname" ColumnName="ClientSurname" />
+                <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+                <ScalarProperty Name="ClientMiddlename" ColumnName="ClientMiddlename" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="loginpassword_ID" ColumnName="loginpassword_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dentistry">
+            <EntityTypeMapping TypeName="DentistryModel.Dentistry">
+              <MappingFragment StoreEntitySet="Dentistry">
+                <ScalarProperty Name="ID_dentistry" ColumnName="ID_dentistry" />
+                <ScalarProperty Name="AddressDentistry" ColumnName="AddressDentistry" />
+                <ScalarProperty Name="stock_ID" ColumnName="stock_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Doctors">
+            <EntityTypeMapping TypeName="DentistryModel.Doctors">
+              <MappingFragment StoreEntitySet="Doctors">
+                <ScalarProperty Name="ID_doctors" ColumnName="ID_doctors" />
+                <ScalarProperty Name="DoctorSurname" ColumnName="DoctorSurname" />
+                <ScalarProperty Name="DoctorName" ColumnName="DoctorName" />
+                <ScalarProperty Name="DoctorMiddlename" ColumnName="DoctorMiddlename" />
+                <ScalarProperty Name="TypeOfDoctor_ID" ColumnName="TypeOfDoctor_ID" />
+                <ScalarProperty Name="loginpassword_ID" ColumnName="loginpassword_ID" />
+                <ScalarProperty Name="Dentistry_ID" ColumnName="Dentistry_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoginPassword">
+            <EntityTypeMapping TypeName="DentistryModel.LoginPassword">
+              <MappingFragment StoreEntitySet="LoginPassword">
+                <ScalarProperty Name="ID_loginpassword" ColumnName="ID_loginpassword" />
+                <ScalarProperty Name="loginvhod" ColumnName="loginvhod" />
+                <ScalarProperty Name="passwordvhod" ColumnName="passwordvhod" />
+                <ScalarProperty Name="roles_ID" ColumnName="roles_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Medicines">
+            <EntityTypeMapping TypeName="DentistryModel.Medicines">
+              <MappingFragment StoreEntitySet="Medicines">
+                <ScalarProperty Name="ID_medicines" ColumnName="ID_medicines" />
+                <ScalarProperty Name="mediciness" ColumnName="mediciness" />
+                <ScalarProperty Name="PriceMedicines" ColumnName="PriceMedicines" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="DentistryModel.Orders">
+              <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="ID_orders" ColumnName="ID_orders" />
+                <ScalarProperty Name="DateOrders" ColumnName="DateOrders" />
+                <ScalarProperty Name="NumberOfOrders" ColumnName="NumberOfOrders" />
+                <ScalarProperty Name="Clients_ID" ColumnName="Clients_ID" />
+                <ScalarProperty Name="Status_ID" ColumnName="Status_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrdersBill">
+            <EntityTypeMapping TypeName="DentistryModel.OrdersBill">
+              <MappingFragment StoreEntitySet="OrdersBill">
+                <ScalarProperty Name="ID_ordersbill" ColumnName="ID_ordersbill" />
+                <ScalarProperty Name="bill_ID" ColumnName="bill_ID" />
+                <ScalarProperty Name="orders_ID" ColumnName="orders_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrdersMedicines">
+            <EntityTypeMapping TypeName="DentistryModel.OrdersMedicines">
+              <MappingFragment StoreEntitySet="OrdersMedicines">
+                <ScalarProperty Name="ID_ordersmedicines" ColumnName="ID_ordersmedicines" />
+                <ScalarProperty Name="orders_ID" ColumnName="orders_ID" />
+                <ScalarProperty Name="medicines_ID" ColumnName="medicines_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrdersService">
+            <EntityTypeMapping TypeName="DentistryModel.OrdersService">
+              <MappingFragment StoreEntitySet="OrdersService">
+                <ScalarProperty Name="ID_ordersservice" ColumnName="ID_ordersservice" />
+                <ScalarProperty Name="orders_ID" ColumnName="orders_ID" />
+                <ScalarProperty Name="service_ID" ColumnName="service_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="DentistryModel.Roles">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="ID_roles" ColumnName="ID_roles" />
+                <ScalarProperty Name="DentistryRole" ColumnName="DentistryRole" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Servicess">
+            <EntityTypeMapping TypeName="DentistryModel.Servicess">
+              <MappingFragment StoreEntitySet="Servicess">
+                <ScalarProperty Name="ID_service" ColumnName="ID_service" />
+                <ScalarProperty Name="servicesss" ColumnName="servicesss" />
+                <ScalarProperty Name="PriceService" ColumnName="PriceService" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Statuss">
+            <EntityTypeMapping TypeName="DentistryModel.Statuss">
+              <MappingFragment StoreEntitySet="Statuss">
+                <ScalarProperty Name="ID_status" ColumnName="ID_status" />
+                <ScalarProperty Name="statusss" ColumnName="statusss" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stock">
+            <EntityTypeMapping TypeName="DentistryModel.Stock">
+              <MappingFragment StoreEntitySet="Stock">
+                <ScalarProperty Name="ID_stock" ColumnName="ID_stock" />
+                <ScalarProperty Name="WerehouseAddress" ColumnName="WerehouseAddress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StockMedicines">
+            <EntityTypeMapping TypeName="DentistryModel.StockMedicines">
+              <MappingFragment StoreEntitySet="StockMedicines">
+                <ScalarProperty Name="ID_stockmedicines" ColumnName="ID_stockmedicines" />
+                <ScalarProperty Name="medicines_ID" ColumnName="medicines_ID" />
+                <ScalarProperty Name="stock_ID" ColumnName="stock_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeOfDoctor">
+            <EntityTypeMapping TypeName="DentistryModel.TypeOfDoctor">
+              <MappingFragment StoreEntitySet="TypeOfDoctor">
+                <ScalarProperty Name="ID_typeofdoctor" ColumnName="ID_typeofdoctor" />
+                <ScalarProperty Name="typeofdoctors" ColumnName="typeofdoctors" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

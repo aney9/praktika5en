@@ -1,0 +1,28 @@
+﻿<Window x:Class="praktika5.lekforvrach"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:praktika5"
+        mc:Ignorable="d"
+        Title="lekforvrach" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition/>
+            <RowDefinition Height="0.3*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Таблица лекарств" HorizontalAlignment="Center" Grid.ColumnSpan="2"/>
+        <DataGrid Grid.Row="1" Grid.ColumnSpan="2" SelectionChanged="DataGrid_SelectionChanged" x:Name="dg1" IsReadOnly="True" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding mediciness}" Header="Название лекарства"/>
+                <DataGridTextColumn Binding="{Binding PriceMedicines}" Header="Цена лекарства"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Grid.Row="2" Grid.ColumnSpan="2" Click="vyhod" x:Name="vyh" Content="Выйти"/>
+    </Grid>
+</Window>

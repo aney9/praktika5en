@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище DentistryModelContainer" CdmEntityContainer="DentistryEntities1">
+    <EntitySetMapping Name="Bill">
+      <EntityTypeMapping TypeName="DentistryModel.Bill">
+        <MappingFragment StoreEntitySet="Bill">
+          <ScalarProperty Name="ID_bill" ColumnName="ID_bill" />
+          <ScalarProperty Name="PurchaseAmount" ColumnName="PurchaseAmount" />
+          <ScalarProperty Name="Dentistry_ID" ColumnName="Dentistry_ID" />
+          <ScalarProperty Name="Clients_ID" ColumnName="Clients_ID" />
+          <ScalarProperty Name="Doctor_ID" ColumnName="Doctor_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClientDoctor">
+      <EntityTypeMapping TypeName="DentistryModel.ClientDoctor">
+        <MappingFragment StoreEntitySet="ClientDoctor">
+          <ScalarProperty Name="ID_clientdoctor" ColumnName="ID_clientdoctor" />
+          <ScalarProperty Name="doctors_ID" ColumnName="doctors_ID" />
+          <ScalarProperty Name="clients_ID" ColumnName="clients_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clients">
+      <EntityTypeMapping TypeName="DentistryModel.Clients">
+        <MappingFragment StoreEntitySet="Clients">
+          <ScalarProperty Name="ID_clients" ColumnName="ID_clients" />
+          <ScalarProperty Name="ClientSurname" ColumnName="ClientSurname" />
+          <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+          <ScalarProperty Name="ClientMiddlename" ColumnName="ClientMiddlename" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="loginpassword_ID" ColumnName="loginpassword_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dentistry">
+      <EntityTypeMapping TypeName="DentistryModel.Dentistry">
+        <MappingFragment StoreEntitySet="Dentistry">
+          <ScalarProperty Name="ID_dentistry" ColumnName="ID_dentistry" />
+          <ScalarProperty Name="AddressDentistry" ColumnName="AddressDentistry" />
+          <ScalarProperty Name="stock_ID" ColumnName="stock_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Doctors">
+      <EntityTypeMapping TypeName="DentistryModel.Doctors">
+        <MappingFragment StoreEntitySet="Doctors">
+          <ScalarProperty Name="ID_doctors" ColumnName="ID_doctors" />
+          <ScalarProperty Name="DoctorSurname" ColumnName="DoctorSurname" />
+          <ScalarProperty Name="DoctorName" ColumnName="DoctorName" />
+          <ScalarProperty Name="DoctorMiddlename" ColumnName="DoctorMiddlename" />
+          <ScalarProperty Name="TypeOfDoctor_ID" ColumnName="TypeOfDoctor_ID" />
+          <ScalarProperty Name="loginpassword_ID" ColumnName="loginpassword_ID" />
+          <ScalarProperty Name="Dentistry_ID" ColumnName="Dentistry_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoginPassword">
+      <EntityTypeMapping TypeName="DentistryModel.LoginPassword">
+        <MappingFragment StoreEntitySet="LoginPassword">
+          <ScalarProperty Name="ID_loginpassword" ColumnName="ID_loginpassword" />
+          <ScalarProperty Name="loginvhod" ColumnName="loginvhod" />
+          <ScalarProperty Name="passwordvhod" ColumnName="passwordvhod" />
+          <ScalarProperty Name="roles_ID" ColumnName="roles_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Medicines">
+      <EntityTypeMapping TypeName="DentistryModel.Medicines">
+        <MappingFragment StoreEntitySet="Medicines">
+          <ScalarProperty Name="ID_medicines" ColumnName="ID_medicines" />
+          <ScalarProperty Name="mediciness" ColumnName="mediciness" />
+          <ScalarProperty Name="PriceMedicines" ColumnName="PriceMedicines" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="DentistryModel.Orders">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="ID_orders" ColumnName="ID_orders" />
+          <ScalarProperty Name="DateOrders" ColumnName="DateOrders" />
+          <ScalarProperty Name="NumberOfOrders" ColumnName="NumberOfOrders" />
+          <ScalarProperty Name="Clients_ID" ColumnName="Clients_ID" />
+          <ScalarProperty Name="Status_ID" ColumnName="Status_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrdersBill">
+      <EntityTypeMapping TypeName="DentistryModel.OrdersBill">
+        <MappingFragment StoreEntitySet="OrdersBill">
+          <ScalarProperty Name="ID_ordersbill" ColumnName="ID_ordersbill" />
+          <ScalarProperty Name="bill_ID" ColumnName="bill_ID" />
+          <ScalarProperty Name="orders_ID" ColumnName="orders_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrdersMedicines">
+      <EntityTypeMapping TypeName="DentistryModel.OrdersMedicines">
+        <MappingFragment StoreEntitySet="OrdersMedicines">
+          <ScalarProperty Name="ID_ordersmedicines" ColumnName="ID_ordersmedicines" />
+          <ScalarProperty Name="orders_ID" ColumnName="orders_ID" />
+          <ScalarProperty Name="medicines_ID" ColumnName="medicines_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrdersService">
+      <EntityTypeMapping TypeName="DentistryModel.OrdersService">
+        <MappingFragment StoreEntitySet="OrdersService">
+          <ScalarProperty Name="ID_ordersservice" ColumnName="ID_ordersservice" />
+          <ScalarProperty Name="orders_ID" ColumnName="orders_ID" />
+          <ScalarProperty Name="service_ID" ColumnName="service_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="DentistryModel.Roles">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="ID_roles" ColumnName="ID_roles" />
+          <ScalarProperty Name="DentistryRole" ColumnName="DentistryRole" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Servicess">
+      <EntityTypeMapping TypeName="DentistryModel.Servicess">
+        <MappingFragment StoreEntitySet="Servicess">
+          <ScalarProperty Name="ID_service" ColumnName="ID_service" />
+          <ScalarProperty Name="servicesss" ColumnName="servicesss" />
+          <ScalarProperty Name="PriceService" ColumnName="PriceService" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Statuss">
+      <EntityTypeMapping TypeName="DentistryModel.Statuss">
+        <MappingFragment StoreEntitySet="Statuss">
+          <ScalarProperty Name="ID_status" ColumnName="ID_status" />
+          <ScalarProperty Name="statusss" ColumnName="statusss" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stock">
+      <EntityTypeMapping TypeName="DentistryModel.Stock">
+        <MappingFragment StoreEntitySet="Stock">
+          <ScalarProperty Name="ID_stock" ColumnName="ID_stock" />
+          <ScalarProperty Name="WerehouseAddress" ColumnName="WerehouseAddress" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StockMedicines">
+      <EntityTypeMapping TypeName="DentistryModel.StockMedicines">
+        <MappingFragment StoreEntitySet="StockMedicines">
+          <ScalarProperty Name="ID_stockmedicines" ColumnName="ID_stockmedicines" />
+          <ScalarProperty Name="medicines_ID" ColumnName="medicines_ID" />
+          <ScalarProperty Name="stock_ID" ColumnName="stock_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeOfDoctor">
+      <EntityTypeMapping TypeName="DentistryModel.TypeOfDoctor">
+        <MappingFragment StoreEntitySet="TypeOfDoctor">
+          <ScalarProperty Name="ID_typeofdoctor" ColumnName="ID_typeofdoctor" />
+          <ScalarProperty Name="typeofdoctors" ColumnName="typeofdoctors" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
